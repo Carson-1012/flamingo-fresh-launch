@@ -41,7 +41,7 @@ export function SiteHeader() {
           </Link>
           <Link
             to="/book"
-            className="rounded-full bg-flamingo px-4 py-2 text-sm font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-105"
+            className="rounded-full bg-gradient-brand px-4 py-2 text-sm font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-105"
           >
             Book Now
           </Link>
@@ -67,7 +67,7 @@ export function SiteHeader() {
         <Link to="/" className="text-muted-foreground" activeProps={{ className: "text-flamingo" }} activeOptions={{ exact: true }}>Home</Link>
         <Link to="/services" className="text-muted-foreground" activeProps={{ className: "text-flamingo" }}>Services</Link>
         <Link to="/reviews" className="text-muted-foreground" activeProps={{ className: "text-flamingo" }}>Reviews</Link>
-        <Link to="/book" className="rounded-full bg-flamingo px-3 py-1 text-flamingo-foreground">Book Now</Link>
+        <Link to="/book" className="rounded-full bg-gradient-brand px-3 py-1 text-flamingo-foreground">Book Now</Link>
       </nav>
     </header>
   );
