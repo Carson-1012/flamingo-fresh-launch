@@ -55,7 +55,7 @@ function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/book"
-                className="inline-flex items-center gap-2 rounded-full bg-flamingo px-6 py-3 font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 font-semibold text-white shadow-soft transition-transform hover:scale-105"
               >
                 Book Now <ArrowRight className="size-4" />
               </Link>
