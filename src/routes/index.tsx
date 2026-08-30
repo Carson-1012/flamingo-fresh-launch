@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BadgeCheck, Calendar, Camera, Droplets, Home, MapPin, MessageSquareText, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, BadgeCheck, Calendar, Camera, CheckCircle2, Droplets, Home, MapPin, MessageSquareText, ShieldCheck, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,6 +20,15 @@ const HIGHLIGHTS = [
   { Icon: Home, title: "Driveways & House Washing", text: "Our two specialties, done right — more services coming as we grow." },
   { Icon: ShieldCheck, title: "Safe & Insured", text: "Surface-safe soft washing, done carefully on every job." },
   { Icon: Sparkles, title: "Like-New Results", text: "We strip away built-up dirt, mold and grime." },
+];
+
+// TODO(owner): remove "Insured" here too if that's not accurate yet — see the note on HIGHLIGHTS above.
+const WHY_CHOOSE_US = [
+  "Locally Owned & Operated",
+  "Professional-Grade Equipment",
+  "Careful, Surface-Safe Techniques",
+  "Free, No-Obligation Quotes",
+  "Satisfaction Focused — We're Not Done Until You're Happy",
 ];
 
 const STEPS = [
@@ -93,6 +102,37 @@ function HomePage() {
               <p className="mt-1 text-sm text-muted-foreground">{text}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <div className="grid items-center gap-10 rounded-3xl border border-border bg-card p-8 shadow-soft md:grid-cols-2 md:p-12">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wide text-flamingo">You Can't Beat Flamingo Fresh</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight">Why Choose Flamingo Fresh?</h2>
+            <p className="mt-3 text-muted-foreground">
+              We're dedicated to a job well done, with the right tools and the attention that comes from being new
+              and hungry to earn every customer.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {WHY_CHOOSE_US.map((item) => (
+                <li key={item} className="flex items-center gap-2.5 text-sm font-medium">
+                  <CheckCircle2 className="size-5 flex-none text-flamingo" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="/book"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-flamingo px-6 py-3 font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-105"
+            >
+              Get a Free Quote <ArrowRight className="size-4" />
+            </Link>
+          </div>
+          <div className="flex aspect-square flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-border bg-background text-center md:aspect-auto md:h-full">
+            <Camera className="size-8 text-muted-foreground" />
+            <p className="text-xs text-muted-foreground">Photo coming soon</p>
+          </div>
         </div>
       </section>
 
