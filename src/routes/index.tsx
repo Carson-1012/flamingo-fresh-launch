@@ -47,7 +47,7 @@ function HomePage() {
               <MapPin className="size-3.5" /> Locally Owned & Operated
             </span>
             <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-              Make Your Home Flamingo <span className="text-gradient-brand">Fresh</span>
+              Make Your Home <span className="text-gradient-brand">Flamingo Fresh</span>
             </h1>
             <p className="mt-4 max-w-lg text-lg text-muted-foreground">
               Professional driveway and house washing that brings your property back to life — fast, affordable, and spotless.
