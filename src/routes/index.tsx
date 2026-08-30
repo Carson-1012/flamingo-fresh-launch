@@ -1,24 +1,96 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
+import { ArrowRight, BadgeCheck, Droplets, Home, ShieldCheck, Sparkles, Star } from "lucide-react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Flamingo Fresh — Professional Pressure Washing" },
+      { name: "description", content: "Flamingo Fresh delivers professional pressure washing for driveways, siding, decks, patios and more. Book your clean today." },
+      { property: "og:title", content: "Flamingo Fresh — Professional Pressure Washing" },
+      { property: "og:description", content: "Professional pressure washing that leaves your property flamingo fresh." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const HIGHLIGHTS = [
+  { Icon: Home, title: "Full Property Cleaning", text: "Driveways, siding, decks, patios, fences and more." },
+  { Icon: ShieldCheck, title: "Safe & Insured", text: "Surface-safe soft washing and fully insured service." },
+  { Icon: Sparkles, title: "Like-New Results", text: "We strip away years of dirt, mold and grime." },
+];
+
+function HomePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div>
+      <section className="bg-wave-hero">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 md:grid-cols-2 md:items-center md:py-28">
+          <div>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-flamingo-soft px-3 py-1 text-xs font-semibold text-flamingo">
+              <Star className="size-3.5" /> 5-Star Rated Local Service
+            </span>
+            <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+              Make Your Home <span className="text-gradient-brand">Flamingo Fresh</span>
+            </h1>
+            <p className="mt-4 max-w-lg text-lg text-muted-foreground">
+              Professional pressure washing that brings driveways, siding, decks and patios back to life — fast, affordable, and spotless.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                to="/book"
+                className="inline-flex items-center gap-2 rounded-full bg-flamingo px-6 py-3 font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-105"
+              >
+                Book Now <ArrowRight className="size-4" />
+              </Link>
+              <Link
+                to="/services"
+                className="inline-flex items-center gap-2 rounded-full border border-aqua bg-aqua-soft px-6 py-3 font-semibold text-aqua-foreground transition-transform hover:scale-105"
+              >
+                <Droplets className="size-4" /> View Services
+              </Link>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-flamingo-soft via-card to-aqua-soft p-1 shadow-soft">
+              <div className="flex h-full flex-col items-center justify-center gap-3 rounded-3xl bg-card/70 text-center">
+                <Droplets className="size-16 text-aqua" />
+                <p className="font-display text-2xl font-semibold">Before &amp; After Photos</p>
+                <p className="max-w-xs text-sm text-muted-foreground">Show off your best transformations here — add your photos to this spot.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <h2 className="text-center text-3xl font-bold tracking-tight">Why Flamingo Fresh?</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {HIGHLIGHTS.map(({ Icon, title, text }) => (
+            <div key={title} className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+              <span className="flex size-11 items-center justify-center rounded-xl bg-flamingo-soft text-flamingo">
+                <Icon className="size-5" />
+              </span>
+              <h3 className="mt-4 text-lg font-semibold">{title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-aqua-soft">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-16 text-center">
+          <BadgeCheck className="size-10 text-flamingo" />
+          <h2 className="text-3xl font-bold tracking-tight">Ready for a fresh clean?</h2>
+          <p className="max-w-md text-muted-foreground">Get a free quote in minutes. No pressure — just pressure washing.</p>
+          <Link
+            to="/book"
+            className="mt-2 inline-flex items-center gap-2 rounded-full bg-flamingo px-6 py-3 font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-105"
+          >
+            Book Now <ArrowRight className="size-4" />
+          </Link>
+        </div>
+      </section>
     </div>
   );
 }
