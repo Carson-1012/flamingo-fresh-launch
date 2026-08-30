@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Car, Home } from "lucide-react";
+import { ArrowRight, Camera, Car, Home } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -18,6 +18,27 @@ export const Route = createFileRoute("/services")({
 const SERVICES = [
   { Icon: Car, title: "Driveways & Walkways", text: "Blast away oil stains, tire marks and built-up grime for curb appeal that pops." },
   { Icon: Home, title: "House Washing (Soft Wash)", text: "Gentle low-pressure soft washing removes mold, algae and dirt without damaging your siding." },
+];
+
+const DETAILS = [
+  {
+    title: "Driveways & Walkways",
+    points: [
+      "Removes oil stains, tire marks, and built-up grime",
+      "Surface cleaner attachment for even, streak-free results",
+      "Safe on concrete, pavers, and most sealed surfaces",
+    ],
+    text: "Your driveway is the first thing anyone sees pulling up — we bring it back to looking new with the right pressure and technique for the surface, not just blasting it and hoping for the best.",
+  },
+  {
+    title: "House Washing (Soft Wash)",
+    points: [
+      "Low-pressure soft wash — safe for siding, stucco, and paint",
+      "Breaks down mold, algae, and dirt before rinsing",
+      "No damage to windows, plants, or fixtures",
+    ],
+    text: "Green streaks and grime build up on siding over time and only get worse. Soft washing lifts it away gently, without the risk high-pressure blasting poses to paint and siding.",
+  },
 ];
 
 function ServicesPage() {
@@ -46,7 +67,38 @@ function ServicesPage() {
         Just getting started with these two — more services (decks, fences, commercial) coming as we grow.
       </p>
 
-      <div className="mt-10 text-center">
+      <div className="mt-20 space-y-20">
+        {DETAILS.map(({ title, points, text }, i) => (
+          <div key={title} className="grid items-center gap-8 md:grid-cols-2">
+            <div className={i % 2 === 1 ? "md:order-2" : ""}>
+              <h2 className="text-2xl font-bold tracking-tight">{title}</h2>
+              <p className="mt-3 text-muted-foreground">{text}</p>
+              <ul className="mt-5 space-y-2 text-sm">
+                {points.map((point) => (
+                  <li key={point} className="flex items-start gap-2">
+                    <span className="mt-1.5 size-1.5 flex-none rounded-full bg-flamingo" />
+                    <span className="text-muted-foreground">{point}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to="/book"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-flamingo px-5 py-2.5 text-sm font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-105"
+              >
+                Get a Free Quote <ArrowRight className="size-4" />
+              </Link>
+            </div>
+            <div className={i % 2 === 1 ? "md:order-1" : ""}>
+              <div className="flex aspect-video flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-border bg-card text-center">
+                <Camera className="size-8 text-muted-foreground" />
+                <p className="text-xs text-muted-foreground">Before &amp; after photo coming soon</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-20 text-center">
         <Link
           to="/book"
           className="inline-flex items-center gap-2 rounded-full bg-flamingo px-6 py-3 font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-105"

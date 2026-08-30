@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BadgeCheck, Droplets, Home, MapPin, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, BadgeCheck, Calendar, Camera, Droplets, Home, MapPin, MessageSquareText, ShieldCheck, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,6 +20,12 @@ const HIGHLIGHTS = [
   { Icon: Home, title: "Driveways & House Washing", text: "Our two specialties, done right — more services coming as we grow." },
   { Icon: ShieldCheck, title: "Safe & Insured", text: "Surface-safe soft washing, done carefully on every job." },
   { Icon: Sparkles, title: "Like-New Results", text: "We strip away built-up dirt, mold and grime." },
+];
+
+const STEPS = [
+  { Icon: MessageSquareText, step: "1", title: "Request Your Free Quote", text: "Tell us about the job — we'll follow up same day with a straightforward price." },
+  { Icon: Calendar, step: "2", title: "We Schedule Your Clean", text: "Pick a day that works for you, including weekends." },
+  { Icon: Sparkles, step: "3", title: "Enjoy the Fresh Reveal", text: "We handle the mess, you enjoy a spotless driveway or home." },
 ];
 
 function HomePage() {
@@ -85,6 +91,44 @@ function HomePage() {
               </span>
               <h3 className="mt-4 text-lg font-semibold">{title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-aqua-soft">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-center text-3xl font-bold tracking-tight">How It Works</h2>
+          <div className="mt-10 grid gap-8 md:grid-cols-3">
+            {STEPS.map(({ Icon, step, title, text }) => (
+              <div key={step} className="relative text-center">
+                <span className="mx-auto flex size-14 items-center justify-center rounded-full bg-flamingo text-flamingo-foreground shadow-soft">
+                  <Icon className="size-6" />
+                </span>
+                <p className="mt-4 font-display text-sm font-semibold uppercase tracking-wide text-flamingo">Step {step}</p>
+                <h3 className="mt-1 text-lg font-semibold">{title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold tracking-tight">Before &amp; After Gallery</h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+            Nothing sells a clean like seeing it for yourself. Photos from every job go up here as we complete them.
+          </p>
+        </div>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div
+              key={i}
+              className="flex aspect-square flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-border bg-card p-4 text-center"
+            >
+              <Camera className="size-8 text-muted-foreground" />
+              <p className="text-xs text-muted-foreground">Photo coming soon</p>
             </div>
           ))}
         </div>
