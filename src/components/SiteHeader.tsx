@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { Facebook, Instagram } from "lucide-react";
 
 // TODO: Replace these URLs with your real social media pages.
@@ -19,6 +19,8 @@ function MusicIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export function SiteHeader() {
+  const location = useLocation();
+
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
       {/* TODO(owner): this is a standing "new customer" offer, not date-limited — add an end date here if you want it time-limited. */}
@@ -30,7 +32,17 @@ export function SiteHeader() {
       </Link>
 
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2">
+        <Link
+          to="/"
+          onClick={(e) => {
+            // Already home: just smooth-scroll up instead of letting the router reset the scroll instantly.
+            if (location.pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+          className="flex items-center gap-2"
+        >
           <img src="/flamingo-logo-512.png" alt="Flamingo Fresh Pressure Washing" className="size-12" />
           <span className="font-display text-xl font-semibold tracking-tight max-sm:hidden">
             <span className="text-gradient-brand">Flamingo Fresh</span>
