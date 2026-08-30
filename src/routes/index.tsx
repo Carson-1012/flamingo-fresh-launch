@@ -181,7 +181,7 @@ function HomePage() {
           <p className="max-w-md text-muted-foreground">Get a free quote in minutes. No pressure — just pressure washing.</p>
           <Link
             to="/book"
-            className="mt-2 inline-flex items-center gap-2 rounded-full bg-flamingo px-6 py-3 font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-105"
+            className="mt-2 inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 font-semibold text-white shadow-soft transition-transform hover:scale-105"
           >
             Book Now <ArrowRight className="size-4" />
           </Link>
