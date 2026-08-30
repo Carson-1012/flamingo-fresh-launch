@@ -84,6 +84,17 @@ function BookPage() {
               Flexible scheduling, 7 days a week
             </li>
           </ul>
+
+          {/* TODO(owner): update the map query below too if you change SERVICE_AREA. */}
+          <div className="mt-6 overflow-hidden rounded-2xl border border-border shadow-soft">
+            <iframe
+              title="Flamingo Fresh service area map"
+              src="https://maps.google.com/maps?q=Wesley%20Chapel%2C%20FL&z=10&output=embed"
+              className="h-56 w-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </div>
 
         <form

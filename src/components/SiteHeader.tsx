@@ -21,6 +21,14 @@ function MusicIcon(props: React.SVGProps<SVGSVGElement>) {
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
+      {/* TODO(owner): this is a standing "new customer" offer, not date-limited — add an end date here if you want it time-limited. */}
+      <Link
+        to="/book"
+        className="bg-gradient-brand block px-4 py-2 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90"
+      >
+        🎉 New customer? Get $20 off your first wash — Book Now
+      </Link>
+
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link to="/" className="flex items-center gap-2">
           <img src="/flamingo-logo-512.png" alt="Flamingo Fresh Pressure Washing" className="size-12" />

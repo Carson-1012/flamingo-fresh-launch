@@ -1,5 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Camera, Car, CheckCircle2, Home } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -31,6 +32,29 @@ const PRICING = [
     title: "House Washing",
     price: "$275",
     includes: ["Single-story homes", "Soft wash siding treatment", "Mold & algae removal"],
+  },
+];
+
+const FAQS = [
+  {
+    q: "Do I need to be home during the cleaning?",
+    a: "No — as long as we can access an outdoor water spigot and the area being cleaned, you don't need to be there. Just let us know how to get in if there's a gate.",
+  },
+  {
+    q: "Do you bring your own water?",
+    a: "We use your home's outdoor water spigot. If that's not available, let us know when you book and we'll figure out a plan.",
+  },
+  {
+    q: "How long does a typical job take?",
+    a: "Most driveways and single-story house washes take about 1–3 hours, depending on size and how dirty the surface is.",
+  },
+  {
+    q: "Is pressure washing safe for my siding and paint?",
+    a: "For house exteriors we use soft washing — low pressure with the right cleaning solution — specifically because high pressure can damage siding and paint. Driveways get more pressure since concrete can handle it.",
+  },
+  {
+    q: "How do I get a price?",
+    a: "Fill out the Book Now form or reach out directly — we'll follow up with a free, no-obligation quote based on the size and condition of the area.",
   },
 ];
 
@@ -144,6 +168,18 @@ function ServicesPage() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mx-auto mt-20 max-w-2xl">
+        <h2 className="text-center text-3xl font-bold tracking-tight">Frequently Asked Questions</h2>
+        <Accordion type="single" collapsible className="mt-8">
+          {FAQS.map(({ q, a }) => (
+            <AccordionItem key={q} value={q}>
+              <AccordionTrigger className="text-base">{q}</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">{a}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
 
       <div className="mt-20 text-center">
