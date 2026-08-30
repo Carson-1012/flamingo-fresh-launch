@@ -30,7 +30,7 @@ export function SiteHeader() {
       </Link>
 
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2">
           <img src="/flamingo-logo-512.png" alt="Flamingo Fresh Pressure Washing" className="size-12" />
           <span className="font-display text-xl font-semibold tracking-tight max-sm:hidden">
             <span className="text-gradient-brand">Flamingo Fresh</span>
