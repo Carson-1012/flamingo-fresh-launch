@@ -1,11 +1,11 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BadgeCheck, Droplets, Home, ShieldCheck, Sparkles, Star } from "lucide-react";
+import { ArrowRight, BadgeCheck, Droplets, Home, MapPin, ShieldCheck, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Flamingo Fresh — Professional Pressure Washing" },
-      { name: "description", content: "Flamingo Fresh delivers professional pressure washing for driveways, siding, decks, patios and more. Book your clean today." },
+      { name: "description", content: "Flamingo Fresh delivers professional driveway and house washing. Book your free quote today." },
       { property: "og:title", content: "Flamingo Fresh — Professional Pressure Washing" },
       { property: "og:description", content: "Professional pressure washing that leaves your property flamingo fresh." },
       { property: "og:type", content: "website" },
@@ -15,10 +15,11 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
+// TODO(owner): update this once you have insurance in place, if "Insured" isn't accurate yet.
 const HIGHLIGHTS = [
-  { Icon: Home, title: "Full Property Cleaning", text: "Driveways, siding, decks, patios, fences and more." },
-  { Icon: ShieldCheck, title: "Safe & Insured", text: "Surface-safe soft washing and fully insured service." },
-  { Icon: Sparkles, title: "Like-New Results", text: "We strip away years of dirt, mold and grime." },
+  { Icon: Home, title: "Driveways & House Washing", text: "Our two specialties, done right — more services coming as we grow." },
+  { Icon: ShieldCheck, title: "Safe & Insured", text: "Surface-safe soft washing, done carefully on every job." },
+  { Icon: Sparkles, title: "Like-New Results", text: "We strip away built-up dirt, mold and grime." },
 ];
 
 function HomePage() {
@@ -28,13 +29,13 @@ function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 md:grid-cols-2 md:items-center md:py-28">
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-flamingo-soft px-3 py-1 text-xs font-semibold text-flamingo">
-              <Star className="size-3.5" /> 5-Star Rated Local Service
+              <MapPin className="size-3.5" /> Locally Owned & Operated
             </span>
             <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight md:text-6xl">
               Make Your Home <span className="text-gradient-brand">Flamingo Fresh</span>
             </h1>
             <p className="mt-4 max-w-lg text-lg text-muted-foreground">
-              Professional pressure washing that brings driveways, siding, decks and patios back to life — fast, affordable, and spotless.
+              Professional driveway and house washing that brings your property back to life — fast, affordable, and spotless.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -61,6 +62,18 @@ function HomePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-3xl px-4 py-14 text-center">
+        <h2 className="text-2xl font-bold tracking-tight">
+          Flamingo Fresh, proudly serving <span className="text-gradient-brand">[Your Service Area]</span>
+        </h2>
+        {/* TODO(owner): swap in your real service area above and in the paragraph below. */}
+        <p className="mt-4 text-muted-foreground">
+          We're a locally owned pressure washing business focused on driveways and house washing — nothing spread too
+          thin, just careful, thorough work on the two jobs we do best. We show up on time, treat your property like
+          our own, and won't leave until it's spotless.
+        </p>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16">

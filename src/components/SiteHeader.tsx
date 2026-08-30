@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Sparkles } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 
 // TODO: Replace these URLs with your real social media pages.
 const SOCIALS = [
@@ -23,11 +23,8 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link to="/" className="flex items-center gap-2">
-          {/* Swap this circle for your logo image when ready */}
-          <span className="flex size-10 items-center justify-center rounded-full bg-flamingo-soft text-flamingo">
-            <Sparkles className="size-5" />
-          </span>
-          <span className="font-display text-xl font-semibold tracking-tight">
+          <img src="/flamingo-logo-512.png" alt="Flamingo Fresh Pressure Washing" className="size-12" />
+          <span className="font-display text-xl font-semibold tracking-tight max-sm:hidden">
             Flamingo <span className="text-gradient-brand">Fresh</span>
           </span>
         </Link>

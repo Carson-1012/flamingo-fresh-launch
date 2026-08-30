@@ -1,13 +1,13 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Building2, Car, Droplets, Fence, Home, Sun } from "lucide-react";
+import { ArrowRight, Car, Home } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — Flamingo Fresh Pressure Washing" },
-      { name: "description", content: "Driveway, house siding, deck, patio, fence and commercial pressure washing services from Flamingo Fresh." },
+      { name: "description", content: "Driveway and house siding pressure washing services from Flamingo Fresh." },
       { property: "og:title", content: "Services — Flamingo Fresh Pressure Washing" },
-      { property: "og:description", content: "Driveways, siding, decks, patios, fences and commercial cleaning." },
+      { property: "og:description", content: "Driveways and house washing, done right." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -17,11 +17,7 @@ export const Route = createFileRoute("/services")({
 
 const SERVICES = [
   { Icon: Car, title: "Driveways & Walkways", text: "Blast away oil stains, tire marks and built-up grime for curb appeal that pops." },
-  { Icon: Home, title: "House Siding (Soft Wash)", text: "Gentle low-pressure soft washing removes mold, algae and dirt without damage." },
-  { Icon: Sun, title: "Decks & Patios", text: "Wood and composite decking cleaned and prepped — ready for grilling season." },
-  { Icon: Fence, title: "Fences", text: "Restore weathered wood and vinyl fencing to its original color." },
-  { Icon: Droplets, title: "Pool Decks & Lanais", text: "Slip-resistant, spotless pool areas your family can enjoy safely." },
-  { Icon: Building2, title: "Commercial Properties", text: "Storefronts, parking areas and building exteriors that impress customers." },
+  { Icon: Home, title: "House Washing (Soft Wash)", text: "Gentle low-pressure soft washing removes mold, algae and dirt without damaging your siding." },
 ];
 
 function ServicesPage() {
@@ -34,7 +30,7 @@ function ServicesPage() {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto mt-12 grid max-w-2xl gap-6 sm:grid-cols-2">
         {SERVICES.map(({ Icon, title, text }) => (
           <div key={title} className="group rounded-2xl border border-border bg-card p-6 shadow-soft transition-transform hover:-translate-y-1">
             <span className="flex size-12 items-center justify-center rounded-xl bg-aqua-soft text-aqua-foreground transition-colors group-hover:bg-flamingo-soft group-hover:text-flamingo">
@@ -46,7 +42,11 @@ function ServicesPage() {
         ))}
       </div>
 
-      <div className="mt-14 text-center">
+      <p className="mx-auto mt-8 max-w-md text-center text-sm text-muted-foreground">
+        Just getting started with these two — more services (decks, fences, commercial) coming as we grow.
+      </p>
+
+      <div className="mt-10 text-center">
         <Link
           to="/book"
           className="inline-flex items-center gap-2 rounded-full bg-flamingo px-6 py-3 font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-105"

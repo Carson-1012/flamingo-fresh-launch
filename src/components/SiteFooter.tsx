@@ -1,14 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles } from "lucide-react";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-aqua-soft">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-10 text-center">
         <div className="flex items-center gap-2">
-          <span className="flex size-9 items-center justify-center rounded-full bg-flamingo-soft text-flamingo">
-            <Sparkles className="size-4" />
-          </span>
+          <img src="/flamingo-logo-192.png" alt="Flamingo Fresh Pressure Washing" className="size-10" />
           <span className="font-display text-lg font-semibold">Flamingo Fresh</span>
         </div>
         <p className="max-w-md text-sm text-muted-foreground">
