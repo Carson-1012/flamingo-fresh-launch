@@ -109,7 +109,7 @@ function ServicesPage() {
         <h2 className="text-center text-3xl font-bold tracking-tight">Pricing</h2>
         <p className="mx-auto mt-3 max-w-xl text-center text-muted-foreground">
           Straightforward starting prices — the exact quote depends on size and condition, and you'll always know the
-          firm price before we start. No surprises. Payment is due after the job's done, via Cash App.
+          firm price before we start. No surprises. Payment is due after the job's done — Cash App, Zelle, cash, or check.
         </p>
 
         <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">

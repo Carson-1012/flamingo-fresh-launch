@@ -57,8 +57,8 @@ function BookPage() {
           you shortly. If nothing opened, call or text {BUSINESS_PHONE} instead.
         </p>
         <p className="text-sm text-muted-foreground">
-          Once we've finished the job, we'll let you know the total and you can pay us directly via Cash App —
-          no payment needed now.
+          Once we've finished the job, we'll let you know the total — pay with Cash App, Zelle, cash, or check.
+          No payment needed now.
         </p>
       </div>
     );
@@ -89,10 +89,12 @@ function BookPage() {
               <span className="flex size-9 items-center justify-center rounded-full bg-flamingo-soft text-flamingo"><CalendarCheck className="size-4" /></span>
               Flexible scheduling, 7 days a week
             </li>
-            <li className="flex items-center gap-3">
-              <span className="flex size-9 items-center justify-center rounded-full bg-flamingo-soft text-flamingo"><DollarSign className="size-4" /></span>
+            <li className="flex items-start gap-3">
+              <span className="flex size-9 flex-none items-center justify-center rounded-full bg-flamingo-soft text-flamingo"><DollarSign className="size-4" /></span>
               <span>
-                Pay via Cash App (<a href={CASH_APP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-flamingo">{CASHTAG}</a>) once your job is complete
+                Payment due once your job is complete — Cash App (
+                <a href={CASH_APP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-flamingo">{CASHTAG}</a>
+                ), Zelle, cash, or check
               </span>
             </li>
           </ul>
