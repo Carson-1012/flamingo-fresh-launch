@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Camera, Car, Home } from "lucide-react";
+import { ArrowRight, Camera, Car, CheckCircle2, Home } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -18,6 +18,20 @@ export const Route = createFileRoute("/services")({
 const SERVICES = [
   { Icon: Car, title: "Driveways & Walkways", text: "Blast away oil stains, tire marks and built-up grime for curb appeal that pops." },
   { Icon: Home, title: "House Washing (Soft Wash)", text: "Gentle low-pressure soft washing removes mold, algae and dirt without damaging your siding." },
+];
+
+// TODO(owner): adjust these to whatever you actually want to charge.
+const PRICING = [
+  {
+    title: "Driveway / Walkway",
+    price: "$125",
+    includes: ["Most single driveways", "Oil stains & tire marks treated", "Surface cleaner finish"],
+  },
+  {
+    title: "House Washing",
+    price: "$275",
+    includes: ["Single-story homes", "Soft wash siding treatment", "Mold & algae removal"],
+  },
 ];
 
 const DETAILS = [
@@ -66,6 +80,40 @@ function ServicesPage() {
       <p className="mx-auto mt-8 max-w-md text-center text-sm text-muted-foreground">
         Just getting started with these two — more services (decks, fences, commercial) coming as we grow.
       </p>
+
+      <div className="mt-20">
+        <h2 className="text-center text-3xl font-bold tracking-tight">Pricing</h2>
+        <p className="mx-auto mt-3 max-w-xl text-center text-muted-foreground">
+          Straightforward starting prices — the exact quote depends on size and condition, and you'll always know the
+          firm price before we start. No surprises.
+        </p>
+
+        <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
+          {PRICING.map(({ title, price, includes }) => (
+            <div key={title} className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+              <h3 className="text-lg font-semibold">{title}</h3>
+              <p className="mt-2">
+                <span className="font-display text-3xl font-bold text-gradient-brand">{price}</span>
+                <span className="ml-1.5 text-sm text-muted-foreground">starting at</span>
+              </p>
+              <ul className="mt-4 space-y-2 text-sm">
+                {includes.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <CheckCircle2 className="mt-0.5 size-4 flex-none text-flamingo" />
+                    <span className="text-muted-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to="/book"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-flamingo px-5 py-2.5 text-sm font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-105"
+              >
+                Get a Free Quote <ArrowRight className="size-4" />
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div className="mt-20 space-y-20">
         {DETAILS.map(({ title, points, text }, i) => (
