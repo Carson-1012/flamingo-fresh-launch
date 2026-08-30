@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarCheck, CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
+import { CalendarCheck, CheckCircle2, DollarSign, Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/book")({
@@ -24,6 +24,8 @@ const inputClass =
 const BUSINESS_PHONE = "(555) 123-4567"; // e.g. "(813) 213-0478"
 const BUSINESS_EMAIL = "hello@flamingofresh.com"; // where quote requests get emailed
 const SERVICE_AREA = "Serving Wesley Chapel, Florida, and surrounding areas";
+const CASHTAG = "$cgdavis1012";
+const CASH_APP_URL = `https://cash.app/${CASHTAG}`;
 
 function buildMailto(form: HTMLFormElement) {
   const data = new FormData(form);
@@ -54,6 +56,10 @@ function BookPage() {
           Your email app should have opened with your quote request ready to send. Just hit send and we'll get back to
           you shortly. If nothing opened, call or text {BUSINESS_PHONE} instead.
         </p>
+        <p className="text-sm text-muted-foreground">
+          Once we've finished the job, we'll let you know the total and you can pay us directly via Cash App —
+          no payment needed now.
+        </p>
       </div>
     );
   }
@@ -82,6 +88,12 @@ function BookPage() {
             <li className="flex items-center gap-3">
               <span className="flex size-9 items-center justify-center rounded-full bg-flamingo-soft text-flamingo"><CalendarCheck className="size-4" /></span>
               Flexible scheduling, 7 days a week
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="flex size-9 items-center justify-center rounded-full bg-flamingo-soft text-flamingo"><DollarSign className="size-4" /></span>
+              <span>
+                Pay via Cash App (<a href={CASH_APP_URL} target="_blank" rel="noopener noreferrer" className="hover:text-flamingo">{CASHTAG}</a>) once your job is complete
+              </span>
             </li>
           </ul>
 
