@@ -4,9 +4,9 @@ import { ArrowRight, BadgeCheck, Droplets, Home, MapPin, ShieldCheck, Sparkles }
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Flamingo Fresh — Professional Pressure Washing" },
-      { name: "description", content: "Flamingo Fresh delivers professional driveway and house washing. Book your free quote today." },
-      { property: "og:title", content: "Flamingo Fresh — Professional Pressure Washing" },
+      { title: "Flamingo Fresh — Pressure Washing in Wesley Chapel, FL" },
+      { name: "description", content: "Flamingo Fresh delivers professional driveway and house washing in Wesley Chapel, FL and surrounding areas. Book your free quote today." },
+      { property: "og:title", content: "Flamingo Fresh — Pressure Washing in Wesley Chapel, FL" },
       { property: "og:description", content: "Professional pressure washing that leaves your property flamingo fresh." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -66,9 +66,8 @@ function HomePage() {
 
       <section className="mx-auto max-w-3xl px-4 py-14 text-center">
         <h2 className="text-2xl font-bold tracking-tight">
-          Flamingo Fresh, proudly serving <span className="text-gradient-brand">[Your Service Area]</span>
+          Flamingo Fresh, proudly serving <span className="text-gradient-brand">Wesley Chapel, FL & surrounding areas</span>
         </h2>
-        {/* TODO(owner): swap in your real service area above and in the paragraph below. */}
         <p className="mt-4 text-muted-foreground">
           We're a locally owned pressure washing business focused on driveways and house washing — nothing spread too
           thin, just careful, thorough work on the two jobs we do best. We show up on time, treat your property like

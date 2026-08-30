@@ -23,7 +23,7 @@ const inputClass =
 // below AND to build the quote-request email when someone submits the form.
 const BUSINESS_PHONE = "(555) 123-4567"; // e.g. "(813) 213-0478"
 const BUSINESS_EMAIL = "hello@flamingofresh.com"; // where quote requests get emailed
-const SERVICE_AREA = "Serving your local area"; // e.g. "Serving Tampa & Wesley Chapel"
+const SERVICE_AREA = "Serving Wesley Chapel, FL & surrounding areas";
 
 function buildMailto(form: HTMLFormElement) {
   const data = new FormData(form);
