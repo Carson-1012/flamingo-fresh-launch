@@ -25,7 +25,7 @@ export function SiteHeader() {
         <Link to="/" className="flex items-center gap-2">
           <img src="/flamingo-logo-512.png" alt="Flamingo Fresh Pressure Washing" className="size-12" />
           <span className="font-display text-xl font-semibold tracking-tight max-sm:hidden">
-            Flamingo <span className="text-gradient-brand">Fresh</span>
+            <span className="text-gradient-brand">Flamingo Fresh</span>
           </span>
         </Link>
 
