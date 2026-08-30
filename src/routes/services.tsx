@@ -42,7 +42,7 @@ const FAQS = [
   },
   {
     q: "Do you bring your own water?",
-    a: "We use your home's outdoor water spigot. If that's not available, let us know when you book and we'll figure out a plan.",
+    a: "We work from your home's outdoor water spigot — we're not able to supply our own water on-site, so we do need access to yours for every job. Just let us know when you book if there's anything we should know about getting to it.",
   },
   {
     q: "How long does a typical job take?",
