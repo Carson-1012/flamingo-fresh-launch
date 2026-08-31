@@ -36,7 +36,12 @@ const WHY_CHOOSE_US = [
 // each needs a separate "before" and "after" shot from the same angle, not a
 // pre-combined image. Leave a slot as `null` to show a "coming soon" tile instead.
 type GalleryPair = { before: string; after: string; alt: string } | null;
-const GALLERY: GalleryPair[] = [null, null, null, null];
+const GALLERY: GalleryPair[] = [
+  { before: "/gallery-garage-before.png", after: "/gallery-garage-after.png", alt: "Garage floor cleaning" },
+  null,
+  null,
+  null,
+];
 
 const STEPS = [
   { Icon: MessageSquareText, step: "1", title: "Request Your Free Quote", text: "Tell us about the job — we'll follow up same day with a straightforward price." },
