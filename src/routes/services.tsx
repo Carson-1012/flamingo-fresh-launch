@@ -25,12 +25,15 @@ const SERVICES = [
 const PRICING = [
   {
     title: "Driveway / Walkway",
-    price: "$125",
-    includes: ["Most single driveways", "Oil stains & tire marks treated", "Surface cleaner finish"],
+    tiers: [
+      { label: "Regular size", price: "$125" },
+      { label: "Large", price: "$150" },
+    ],
+    includes: ["Oil stains & tire marks treated", "Surface cleaner finish", "Safe on concrete & pavers"],
   },
   {
     title: "House Washing",
-    price: "$275",
+    tiers: [{ label: "Starting at", price: "$275" }],
     includes: ["Single-story homes", "Soft wash siding treatment", "Mold & algae removal"],
   },
 ];
@@ -113,13 +116,17 @@ function ServicesPage() {
         </p>
 
         <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
-          {PRICING.map(({ title, price, includes }) => (
+          {PRICING.map(({ title, tiers, includes }) => (
             <div key={title} className="rounded-2xl border border-border bg-card p-6 shadow-soft">
               <h3 className="text-lg font-semibold">{title}</h3>
-              <p className="mt-2">
-                <span className="font-display text-3xl font-bold text-gradient-brand">{price}</span>
-                <span className="ml-1.5 text-sm text-muted-foreground">starting at</span>
-              </p>
+              <div className="mt-2 space-y-1">
+                {tiers.map(({ label, price }) => (
+                  <p key={label} className="flex items-baseline gap-1.5">
+                    <span className="font-display text-2xl font-bold text-gradient-brand">{price}</span>
+                    <span className="text-sm text-muted-foreground">{label}</span>
+                  </p>
+                ))}
+              </div>
               <ul className="mt-4 space-y-2 text-sm">
                 {includes.map((item) => (
                   <li key={item} className="flex items-start gap-2">

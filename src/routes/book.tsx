@@ -171,7 +171,8 @@ function BookPage() {
               <span className="mb-1.5 block text-sm font-medium">Service Needed</span>
               <select name="service" required className={inputClass} defaultValue="">
                 <option value="" disabled>Select a service</option>
-                <option>Driveway / Walkway</option>
+                <option>Driveway / Walkway — Regular size ($125)</option>
+                <option>Driveway / Walkway — Large ($150)</option>
                 <option>House Washing (Soft Wash)</option>
                 <option>Something else</option>
               </select>
