@@ -53,40 +53,29 @@ function HomePage() {
   return (
     <div>
       <section className="bg-wave-hero">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 md:grid-cols-2 md:items-center md:py-28">
-          <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-flamingo-soft px-3 py-1 text-xs font-semibold text-flamingo">
-              <MapPin className="size-3.5" /> Locally Owned & Operated
-            </span>
-            <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-              Make Your Home <span className="text-gradient-brand">Flamingo Fresh</span>
-            </h1>
-            <p className="mt-4 max-w-lg text-lg text-muted-foreground">
-              Professional driveway and house washing that brings your property back to life — fast, affordable, and spotless.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/book"
-                className="inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 font-semibold text-white shadow-soft transition-transform hover:scale-105"
-              >
-                Book Now <ArrowRight className="size-4" />
-              </Link>
-              <Link
-                to="/services"
-                className="inline-flex items-center gap-2 rounded-full border border-aqua bg-aqua-soft px-6 py-3 font-semibold text-aqua-foreground transition-transform hover:scale-105"
-              >
-                <Droplets className="size-4" /> View Services
-              </Link>
-            </div>
-          </div>
-          <div className="relative">
-            <div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-flamingo-soft via-card to-aqua-soft p-1 shadow-soft">
-              <div className="flex h-full flex-col items-center justify-center gap-3 rounded-3xl bg-card/70 text-center">
-                <Droplets className="size-16 text-aqua" />
-                <p className="font-display text-2xl font-semibold">Before &amp; After Photos</p>
-                <p className="max-w-xs text-sm text-muted-foreground">Show off your best transformations here — add your photos to this spot.</p>
-              </div>
-            </div>
+        <div className="mx-auto max-w-4xl px-4 py-24 text-center md:py-32">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-flamingo-soft px-3 py-1 text-xs font-semibold text-flamingo">
+            <MapPin className="size-3.5" /> Locally Owned & Operated
+          </span>
+          <h1 className="mt-6 text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-8xl">
+            Make Your Home <span className="text-gradient-brand">Flamingo Fresh</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground md:text-xl">
+            Professional driveway and house washing that brings your property back to life — fast, affordable, and spotless.
+          </p>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link
+              to="/book"
+              className="inline-flex items-center gap-2 rounded-full bg-black px-8 py-4 text-lg font-semibold text-white shadow-soft transition-transform hover:scale-105"
+            >
+              Book Now <ArrowRight className="size-5" />
+            </Link>
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 rounded-full border border-aqua bg-aqua-soft px-8 py-4 text-lg font-semibold text-aqua-foreground transition-transform hover:scale-105"
+            >
+              <Droplets className="size-5" /> View Services
+            </Link>
           </div>
         </div>
       </section>
