@@ -38,7 +38,7 @@ const WHY_CHOOSE_US = [
 type GalleryPair = { before: string; after: string; alt: string } | null;
 const GALLERY: GalleryPair[] = [
   { before: "/gallery-garage-before.png", after: "/gallery-garage-after.png", alt: "Garage floor cleaning" },
-  null,
+  { before: "/gallery-walkway-before.png", after: "/gallery-walkway-after.png", alt: "Walkway cleaning" },
   null,
   null,
 ];
