@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarCheck, CheckCircle2, DollarSign, Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const Route = createFileRoute("/book")({
   head: () => ({
@@ -26,6 +26,7 @@ const BUSINESS_EMAIL = "flamingofreshpressurewashing@gmail.com"; // where quote 
 const SERVICE_AREA = "Serving Wesley Chapel, Florida, and surrounding areas";
 const CASHTAG = "$cgdavis1012";
 const CASH_APP_URL = `https://cash.app/${CASHTAG}`;
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xoeqeayp";
 
 function buildMailto(form: HTMLFormElement) {
   const data = new FormData(form);
@@ -46,15 +47,18 @@ function buildMailto(form: HTMLFormElement) {
 
 function BookPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   if (submitted) {
     return (
       <div className="mx-auto flex max-w-xl flex-col items-center gap-4 px-4 py-24 text-center">
         <CheckCircle2 className="size-14 text-flamingo" />
-        <h1 className="text-3xl font-bold tracking-tight">Almost there!</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Request sent!</h1>
         <p className="text-muted-foreground">
-          Your email app should have opened with your quote request ready to send. Just hit send and we'll get back to
-          you shortly. If nothing opened, call or text {BUSINESS_PHONE} instead.
+          Your quote request came through — we'll get back to you shortly. If you don't hear from us soon, call or
+          text {BUSINESS_PHONE}.
         </p>
         <p className="text-sm text-muted-foreground">
           Once we've finished the job, we'll let you know the total — pay with Cash App, Zelle, cash, or check.
@@ -112,14 +116,40 @@ function BookPage() {
         </div>
 
         <form
+          ref={formRef}
           className="rounded-3xl border border-border bg-card p-6 shadow-soft md:col-span-3 md:p-8"
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault();
-            const mailto = buildMailto(e.currentTarget);
-            window.location.href = mailto;
-            setSubmitted(true);
+            const form = e.currentTarget;
+            setSubmitting(true);
+            setFailed(false);
+            try {
+              const res = await fetch(FORMSPREE_ENDPOINT, {
+                method: "POST",
+                body: new FormData(form),
+                headers: { Accept: "application/json" },
+              });
+              if (res.ok) {
+                setSubmitted(true);
+              } else {
+                setFailed(true);
+              }
+            } catch {
+              setFailed(true);
+            } finally {
+              setSubmitting(false);
+            }
           }}
         >
+          {failed && (
+            <p className="mb-4 rounded-xl bg-destructive/10 p-3 text-sm text-destructive">
+              Something went wrong sending that — please call or text {BUSINESS_PHONE} instead, or{" "}
+              <a href={formRef.current ? buildMailto(formRef.current) : `mailto:${BUSINESS_EMAIL}`} className="underline">
+                email us directly
+              </a>
+              .
+            </p>
+          )}
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="block">
               <span className="mb-1.5 block text-sm font-medium">Name</span>
@@ -153,9 +183,10 @@ function BookPage() {
           </div>
           <button
             type="submit"
-            className="mt-6 w-full rounded-full bg-flamingo px-6 py-3 font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-[1.02]"
+            disabled={submitting}
+            className="mt-6 w-full rounded-full bg-flamingo px-6 py-3 font-semibold text-flamingo-foreground shadow-soft transition-transform hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
           >
-            Request My Free Quote
+            {submitting ? "Sending…" : "Request My Free Quote"}
           </button>
         </form>
       </div>
