@@ -80,12 +80,12 @@ function HomePage() {
             </div>
           </div>
           <div className="relative">
-            <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-gradient-to-br from-flamingo-soft via-card to-aqua-soft p-1 shadow-soft">
-              <img
-                src="/gallery-driveway.png"
-                alt="Before and after of a walkway pressure washed by Flamingo Fresh"
-                className="size-full rounded-[1.25rem] object-cover"
-              />
+            <div className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-flamingo-soft via-card to-aqua-soft p-1 shadow-soft">
+              <div className="flex h-full flex-col items-center justify-center gap-3 rounded-3xl bg-card/70 text-center">
+                <Droplets className="size-16 text-aqua" />
+                <p className="font-display text-2xl font-semibold">Before &amp; After Photos</p>
+                <p className="max-w-xs text-sm text-muted-foreground">Show off your best transformations here — add your photos to this spot.</p>
+              </div>
             </div>
           </div>
         </div>
