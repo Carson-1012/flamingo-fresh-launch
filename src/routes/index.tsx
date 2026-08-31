@@ -39,7 +39,7 @@ type GalleryPair = { before: string; after: string; alt: string } | null;
 const GALLERY: GalleryPair[] = [
   { before: "/gallery-garage-before.png", after: "/gallery-garage-after.png", alt: "Garage floor cleaning" },
   { before: "/gallery-walkway-before.png", after: "/gallery-walkway-after.png", alt: "Walkway cleaning" },
-  null,
+  { before: "/gallery-pavers-before.png", after: "/gallery-pavers-after.png", alt: "Paver patio cleaning" },
   null,
 ];
 
