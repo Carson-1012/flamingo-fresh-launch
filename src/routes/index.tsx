@@ -40,7 +40,7 @@ const GALLERY: GalleryPair[] = [
   { before: "/gallery-garage-before.png", after: "/gallery-garage-after.png", alt: "Garage floor cleaning" },
   { before: "/gallery-walkway-before.png", after: "/gallery-walkway-after.png", alt: "Walkway cleaning" },
   { before: "/gallery-pavers-before.png", after: "/gallery-pavers-after.png", alt: "Paver patio cleaning" },
-  null,
+  { before: "/gallery-patio-before.png", after: "/gallery-patio-after.png", alt: "Stained concrete patio cleaning" },
 ];
 
 const STEPS = [
