@@ -70,6 +70,7 @@ const DETAILS = [
       "Safe on concrete, pavers, and most sealed surfaces",
     ],
     text: "Your driveway is the first thing anyone sees pulling up — we bring it back to looking new with the right pressure and technique for the surface, not just blasting it and hoping for the best.",
+    photo: "/gallery-driveway.png",
   },
   {
     title: "House Washing (Soft Wash)",
@@ -147,7 +148,7 @@ function ServicesPage() {
       </div>
 
       <div className="mt-20 space-y-20">
-        {DETAILS.map(({ title, points, text }, i) => (
+        {DETAILS.map(({ title, points, text, photo }, i) => (
           <div key={title} className="grid items-center gap-8 md:grid-cols-2">
             <div className={i % 2 === 1 ? "md:order-2" : ""}>
               <h2 className="text-2xl font-bold tracking-tight">{title}</h2>
@@ -168,10 +169,16 @@ function ServicesPage() {
               </Link>
             </div>
             <div className={i % 2 === 1 ? "md:order-1" : ""}>
-              <div className="flex aspect-video flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-border bg-card text-center">
-                <Camera className="size-8 text-muted-foreground" />
-                <p className="text-xs text-muted-foreground">Before &amp; after photo coming soon</p>
-              </div>
+              {photo ? (
+                <div className="aspect-video overflow-hidden rounded-2xl border border-border shadow-soft">
+                  <img src={photo} alt={`Before and after — ${title}`} className="size-full object-cover" />
+                </div>
+              ) : (
+                <div className="flex aspect-video flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-border bg-card text-center">
+                  <Camera className="size-8 text-muted-foreground" />
+                  <p className="text-xs text-muted-foreground">Before &amp; after photo coming soon</p>
+                </div>
+              )}
             </div>
           </div>
         ))}
