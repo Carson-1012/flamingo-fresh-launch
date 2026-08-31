@@ -21,7 +21,7 @@ const inputClass =
 
 // TODO(owner): fill in your real contact details here — used in the sidebar links
 // below AND to build the quote-request email when someone submits the form.
-const BUSINESS_PHONE = "(555) 123-4567"; // e.g. "(813) 213-0478"
+const BUSINESS_PHONE = "(813) 510-6189";
 const BUSINESS_EMAIL = "flamingofreshpressurewashing@gmail.com"; // where quote requests get emailed
 const SERVICE_AREA = "Serving Wesley Chapel, Florida, and surrounding areas";
 const CASHTAG = "$cgdavis1012";
