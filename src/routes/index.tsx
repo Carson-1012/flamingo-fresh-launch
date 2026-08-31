@@ -1,5 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, BadgeCheck, Calendar, Camera, CheckCircle2, Droplets, Home, MapPin, MessageSquareText, ShieldCheck, Sparkles } from "lucide-react";
+import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,6 +31,12 @@ const WHY_CHOOSE_US = [
   "Free, No-Obligation Quotes",
   "Satisfaction Focused — We're Not Done Until You're Happy",
 ];
+
+// TODO(owner): fill these in as you take real before/after photo pairs on jobs —
+// each needs a separate "before" and "after" shot from the same angle, not a
+// pre-combined image. Leave a slot as `null` to show a "coming soon" tile instead.
+type GalleryPair = { before: string; after: string; alt: string } | null;
+const GALLERY: GalleryPair[] = [null, null, null, null];
 
 const STEPS = [
   { Icon: MessageSquareText, step: "1", title: "Request Your Free Quote", text: "Tell us about the job — we'll follow up same day with a straightforward price." },
@@ -162,18 +169,19 @@ function HomePage() {
           </p>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="aspect-square overflow-hidden rounded-2xl border border-border shadow-soft">
-            <img src="/gallery-driveway.png" alt="Before and after of a Flamingo Fresh driveway cleaning" className="size-full object-cover" />
-          </div>
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div
-              key={i}
-              className="flex aspect-square flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-border bg-card p-4 text-center"
-            >
-              <Camera className="size-8 text-muted-foreground" />
-              <p className="text-xs text-muted-foreground">Photo coming soon</p>
-            </div>
-          ))}
+          {GALLERY.map((pair, i) =>
+            pair ? (
+              <BeforeAfterSlider key={i} before={pair.before} after={pair.after} alt={pair.alt} />
+            ) : (
+              <div
+                key={i}
+                className="flex aspect-square flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-border bg-card p-4 text-center"
+              >
+                <Camera className="size-8 text-muted-foreground" />
+                <p className="text-xs text-muted-foreground">Photo coming soon</p>
+              </div>
+            ),
+          )}
         </div>
       </section>
 
