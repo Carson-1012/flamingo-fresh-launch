@@ -5,15 +5,13 @@ import { Facebook, Instagram } from "lucide-react";
 const SOCIALS = [
   { label: "Facebook", href: "https://facebook.com/", Icon: Facebook },
   { label: "Instagram", href: "https://instagram.com/", Icon: Instagram },
-  { label: "TikTok", href: "https://tiktok.com/", Icon: MusicIcon },
+  { label: "TikTok", href: "https://tiktok.com/", Icon: TikTokIcon },
 ];
 
-function MusicIcon(props: React.SVGProps<SVGSVGElement>) {
+function TikTokIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M9 18V5l12-2v13" />
-      <circle cx="6" cy="18" r="3" />
-      <circle cx="18" cy="16" r="3" />
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M16.6 5.82c-.9-.78-1.47-1.9-1.6-3.14V2.5h-3.15v13.6a2.6 2.6 0 1 1-1.86-2.49v-3.2a5.75 5.75 0 1 0 5.01 5.71V9.3a7.5 7.5 0 0 0 4.42 1.43V7.6a4.55 4.55 0 0 1-2.82-1.78Z" />
     </svg>
   );
 }
